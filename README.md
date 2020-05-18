@@ -122,7 +122,7 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 ## Examples
 ### First order ODE example:
 <p align="center">
-    ![\frac{\mathrm{d}f}{\mathrm{d}x}(x) + f(x) = e^{-x} \cos(x)](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7Df%7D%7B%5Cmathrm%7Bd%7Dx%7D(x)%20%2B%20f(x)%20%3D%20e%5E%7B-x%7D%20%5Ccos(x))
+    <img src="https://latex.codecogs.com/gif.latex?\frac{\mathrm{d}f}{\mathrm{d}x}(x)&space;&plus;&space;f(x)&space;=&space;e^{-x}&space;\cos(x)" title="\frac{\mathrm{d}f}{\mathrm{d}x}(x) + f(x) = e^{-x} \cos(x)" />
 </p>
 
 ![Neural Network Solver solution to First Order ODE](Figures/README_pngs/Figure_1.png)
