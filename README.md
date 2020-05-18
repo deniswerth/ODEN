@@ -135,6 +135,7 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 <p align="center">
     <img src="https://latex.codecogs.com/gif.latex?\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}(x)&space;&plus;&space;2m(E_n&space;-&space;V(x))\psi(x)&space;=&space;0" title="\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}(x) + 2m(E_n - V(x))\psi(x) = 0" />
 </p>
+
 * Neural Network Solver numerical solution is overlayed on the true solution. Note the solution is effectively continuous in the domain 
 
 ![Neural Network Solver solution to Schrodinger equation with harmonic potential](Figures/README_pngs/Figure_3.png)
@@ -145,6 +146,7 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 <p align="center">
     <img src="https://latex.codecogs.com/gif.latex?\frac{\mathrm{d}^2f}{\mathrm{d}x^2}(x)&space;&plus;&space;\frac{n^2&space;-&space;1}{(1&plus;x^2)^2}&space;f(x)&space;=&space;0" title="\frac{\mathrm{d}^2f}{\mathrm{d}x^2}(x) + \frac{n^2 - 1}{(1+x^2)^2} f(x) = 0" />
 </p>
+
 * Neural Network Solver numerical solution is overlayed on the true solution. Note the solution is effectively continuous in the domain 
 
 ![Neural Network Solver solution to Burst equation with n = 10](Figures/README_pngs/Figure_4_batch.png)
