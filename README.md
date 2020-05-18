@@ -123,12 +123,7 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 ### First order ODE example:
 ![\frac{\mathrm{d}f}{\mathrm{d}x}(x) + f(x) = e^{-x} \cos(x)](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7Df%7D%7B%5Cmathrm%7Bd%7Dx%7D(x)%20%2B%20f(x)%20%3D%20e%5E%7B-x%7D%20%5Ccos(x))
 
-![Neural Network Solver solution to first order ODE](Figures/Figure_1.pdf)
-<object data="http://docs.google.com/gview?url=https://github.com/deniswerth/NeuralNetwork_ODEsolver/raw/master/Figures/Figure_1.pdf&embedded=true" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/deniswerth/NeuralNetwork_ODEsolver/blob/master/Figures/Figure_1.pdf&embedded=true">
-            <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/deniswerth/NeuralNetwork_ODEsolver/blob/master/Figures/Figure_1.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+![Neural Network Solver solution to first order ODE](https://github.com/deniswerth/NeuralNetwork_ODEsolver/raw/master/Figures/Figure_1.pdf)
 
 ### Schrodinger equation example:
 ![\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}(x) + 2m(E_n - V(x))\psi(x) = 0.](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7D%5E2%5Cpsi%7D%7B%5Cmathrm%7Bd%7Dx%5E2%7D(x)%20%2B%202m(E_n%20-%20V(x))%5Cpsi(x)%20%3D%200)
