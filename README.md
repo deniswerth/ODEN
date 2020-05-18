@@ -43,15 +43,15 @@ Imported in `__Main__.py` by:
 from DiffEq import DiffEq
 ```
 
-* Differential equation class that contains definition of differential equation problem. Three examples are given: a first order ODE; \\(n^{th}\\) stationary Schrodinger equation with a harmonic potential and a burst equation.
+* Differential equation class that contains definition of differential equation problem. Three examples are given: a first order ODE; $`n^{th}`$ stationary Schrodinger equation with a harmonic potential and a burst equation.
 * A custom differential equation can be defined as the following in `DiffEq.py`:
 ```python
 if self.diffeq == "name":
     # x should be written as self.x; y should be written as self.y; dy/dx should be written as self.dydx and d2y/dx2 should be written as self.d2ydx2
-    self.eq = The custom differential equation 
+    self.eq = self.d2ydx2 + self.dydx + self.y - tf.math.exp(-self.x) # Your custom differential equation
 
 ```
-* Currently, the code only supports up to second order. However higher orders can be implemented by editing the `y_gradients` function for the Neural Network Solver class in `ODEsolver.py`. For example, third order can be accessed by using the following code snippet:
+* Currently, the code only supports up to second order. However **higher order derivatives** can be implemented by editing the `y_gradients` function for the Neural Network Solver class in `ODEsolver.py`. For example, third order can be accessed by using the following code snippet:
 ```python
 def y_gradients(self, x):
     """
