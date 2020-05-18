@@ -132,6 +132,10 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 
 * A sped up animation of the training process:
 ![training process](Figures/README_pngs/firstorderode.gif)
+
+<p align="center">
+  <img src="Figures/README_pngs/firstorderode.gif">
+</p>
 ### Schrodinger equation example:
 * Using the following differential equation and Dirichlet boundary conditions:
 <p align="center">
