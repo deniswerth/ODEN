@@ -35,7 +35,7 @@ ODEsolver(order, diffeq, x, initial_condition, epochs, architecture, initializer
 | ------------- |:-------------:|:-------------:|
 | **Order:** *int* | Order of the differential equation | 2 |
 | **diffeq:** *string* | Differential equation name | "schrodinger" |
-| **x:** *ndarray* | Sampled domain | `numpy.linspace(-5, 5, 100)` |
+| **x:** *ndarray* | Sampled domain | `np.linspace(-5, 5, 100)` |
 | **initial_condition:** *tuple* | Initial condition for the differential equation | ((x0, y0), (dx0, dy0)) |
 | **epochs:** *int* | The number of epochs the neural net is trained for | 10000 |
 | **architecture:** *list* | Architecture of the densely connected hidden layers | [30, 30, 30]|
