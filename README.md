@@ -125,6 +125,7 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 <p align="center">
     <img src="https://latex.codecogs.com/gif.latex?\frac{\mathrm{d}f}{\mathrm{d}x}(x)&space;&plus;&space;f(x)&space;=&space;e^{-x}&space;\cos(x)" title="\frac{\mathrm{d}f}{\mathrm{d}x}(x) + f(x) = e^{-x} \cos(x)" />
 </p>
+
 * Neural Network Solver numerical solution is overlayed on the true solution. Note the solution is effectively continuous in the domain 
 
 ![Neural Network Solver solution to First Order ODE](Figures/README_pngs/Figure_1.png)
