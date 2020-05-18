@@ -25,6 +25,7 @@ Imported in `__Main__.py` by:
 from ODEsolver import ODEsolver
 ```
 
+
 ### Dictionary class in `Dictionary.py`:
 Imported in `__Main__.py` by:
 
@@ -43,7 +44,7 @@ Imported in `__Main__.py` by:
 from DiffEq import DiffEq
 ```
 
-* Differential equation class that contains definition of differential equation problem. Three examples are given: a first order ODE; $`n^{th}`$ stationary Schrodinger equation with a harmonic potential and a burst equation.
+* Differential equation class that contains definition of differential equation problem. Three examples are given: a first order ODE; n<sup>th</sup> stationary Schrodinger equation with a harmonic potential and a burst equation.
 * A custom differential equation can be defined as the following in `DiffEq.py`:
 ```python
 if self.diffeq == "name":
@@ -69,7 +70,7 @@ def y_gradients(self, x):
     d3y_dx3 = tape1.gradient(d2y_dx2,x)
     return y, dy_dx, d2y_dx2, d3y_dx3
 ```
-Make sure to also edit the `differential_cost` function for the Neural Network Solver class in `ODEsolver.py` to include the extra orders:
+Make sure to edit the `differential_cost` function for the Neural Network Solver class in `ODEsolver.py` to include the extra derivatives:
 
 ```python
 y, dydx, d2ydx2, d3ydx3 = self.y_gradients(x)
@@ -78,6 +79,24 @@ y, dydx, d2ydx2, d3ydx3 = self.y_gradients(x)
 ```python
 de = DiffEq(self.diffeq, x, y, dydx, d2ydx2, d3ydx3)
 ```
+Also make sure to also edit the `custom_cost` function in `ODEsolver.py` to include extra boundary terms, an example is given for a third order derivative:
+```python
+if self.order == 3:
+    x0 = np.float64(self.initial_condition[0][0])
+    y0 = np.float64(self.initial_condition[0][1])
+    dx0 = np.float64(self.initial_condition[1][0])
+    dy0 = np.float64(self.initial_condition[1][1])
+    d2x0 = np.float64(self.initial_condition[2][0])
+    d2y0 = np.float64(self.initial_condition[2][1])
+    def loss(y_true, y_pred):
+        differential_cost_term = tf.math.reduce_sum(self.differential_cost(x))
+        boundary_cost_term = tf.square(self.NN_output(np.asarray([[x0]]))[0][0] - y0)
+        boundary_cost_term += tf.square(self.NN_output(np.asarray([[dx0]]))[0][0] - dy0)
+        boundary_cost_term += tf.square(self.NN_output(np.asarray([[d2x0]]))[0][0] - d2y0)
+        return differential_cost_term/self.n + boundary_cost_term
+    return loss
+```
+
 The third order derivative will now be available in `DiffEq.py` using `self.d3ydx3`
 
 ## Examples
