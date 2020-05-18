@@ -123,14 +123,14 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 ### First order ODE example:
 ![\frac{\mathrm{d}f}{\mathrm{d}x}(x) + f(x) = e^{-x} \cos(x)](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7Df%7D%7B%5Cmathrm%7Bd%7Dx%7D(x)%20%2B%20f(x)%20%3D%20e%5E%7B-x%7D%20%5Ccos(x))
 
-![  ](./Figures/Figure_1.pdf)
+![  ](Figures/Figure_1.pdf)
 
 ### Schrodinger equation example:
 ![\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}(x) + 2m(E_n - V(x))\psi(x) = 0.](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7D%5E2%5Cpsi%7D%7B%5Cmathrm%7Bd%7Dx%5E2%7D(x)%20%2B%202m(E_n%20-%20V(x))%5Cpsi(x)%20%3D%200)
 
-![  ](./Figures/Figure_3.pdf)
+![  ](Figures/Figure_3.pdf)
 
 ### Burst equation example:
 ![\frac{\mathrm{d}^2f}{\mathrm{d}x^2}(x) + \frac{n^2 - 1}{(1+x^2)^2} f(x) = 0](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cmathrm%7Bd%7D%5E2f%7D%7B%5Cmathrm%7Bd%7Dx%5E2%7D(x)%20%2B%20%5Cfrac%7Bn%5E2%20-%201%7D%7B(1%2Bx%5E2)%5E2%7D%20f(x)%20%3D%200)
 
-![  ](./Figures/Figure_4_batch.pdf)
+![  ](Figures/Figure_4_batch.pdf)
