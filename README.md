@@ -1,7 +1,7 @@
 # Neural Network ODEsolver
 *This is a test*
 
-| Role        | Candidates           |
+| &nbsp;        | &nbsp;           |
 | ------------- |:-------------:|
 | NN ODEsolver | code that solves ODEs using Neural Networks|
 | Authors |[Liam L.H. Lau](https://github.com/LiamLau1), [Denis Werth](https://github.com/deniswerth)|
