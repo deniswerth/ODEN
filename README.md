@@ -32,7 +32,7 @@ ODEsolver(order, diffeq, x, initial_condition, epochs, architecture, initializer
 ```
 
 | Argument  | Description  | Example |
-| ------------- |:-------------:|:-------------:|
+| ------------- |:-------------:|-------------|
 | **Order:** *int* | Order of the differential equation | 2 |
 | **diffeq:** *string* | Differential equation name | "schrodinger" |
 | **x:** *ndarray* | Sampled domain | `np.linspace(-5, 5, 100)` |
