@@ -18,6 +18,29 @@ All examples from the paper can be reproduced with the code provided, a walk thr
 ### Main code in `__Main__.py`:
 * To replicate the plots in the paper and in **Examples** below, comment out all the `if __name__ == "__main__":` sections except the particular example you want to keep.
 
+### Neural Network Solver class in `ODEsolver.py`:
+Imported in `__Main__.py` by:
+
+```python
+from ODEsolver import ODEsolver
+```
+
+### Dictionary class in `Dictionary.py`:
+Imported in `__Main__.py` by:
+
+```python
+from Dictionary import Dictionary
+D = Dictionary()
+Dict = D.Dict
+```
+* Dictionary class that contains the initializers, activation functions and optimizers that 
+
+### Differential equation class in `ODEsolver.py`:
+Imported in `__Main__.py` by:
+
+```python
+from DiffEq import DiffEq
+```
 
 
 ## Examples
