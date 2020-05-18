@@ -130,7 +130,8 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 
 ![Neural Network Solver solution to First Order ODE](Figures/README_pngs/Figure_1.png)
 
-
+* A sped up animation of the training process:
+![training process](Figures/README_pngs/firstorderode.gif)
 ### Schrodinger equation example:
 * Using the following differential equation and Dirichlet boundary conditions:
 <p align="center">
