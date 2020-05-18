@@ -34,16 +34,16 @@ ODEsolver(order, diffeq, x, initial_condition, epochs, architecture, initializer
 | Argument  | Description  | Example |
 | ------------- |:-------------:|:-------------:|
 | **Order:** *int* | Order of the differential equation | 2 |
-| **diffeq:** *string*| Differential equation name | "schrodinger" |
-| **x:** *ndarray*| Sampled domain | `numpy.linspace(-5, 5, 100)` |
-| **initial_condition:** *tuple*| Initial condition for the differential equation | ((x0, y0), (dx0, dy0)) |
-| **epochs:** *int*| The number of epochs the neural net is trained for | 10000 |
-| **architecture:** *list*| Architecture of the densely connected hidden layers | [30, 30, 30]|
-| **initializer:** *string*| Initializer of the neural network parameters | "GlorotNormal" |
-| **activation:** *string*| Activation function used for the hidden layers | "sigmoid" |
-| **optimizer:** *string*| optimizer used for gradient descent | "Adam" |
-| **prediction_save:** *bool*| Toggle for whether the prediction at each epoch is saved. Used for animation | True/False |
-| **weights_save:** *bool*| Toggle for whether the weights and biases at each epoch are saved. Can be used for trajectory plots on the loss surface| True/False |
+| **diffeq:** *string* | Differential equation name | "schrodinger" |
+| **x:** *ndarray* | Sampled domain | `numpy.linspace(-5, 5, 100)` |
+| **initial_condition:** *tuple* | Initial condition for the differential equation | ((x0, y0), (dx0, dy0)) |
+| **epochs:** *int* | The number of epochs the neural net is trained for | 10000 |
+| **architecture:** *list* | Architecture of the densely connected hidden layers | [30, 30, 30]|
+| **initializer:** *string* | Initializer of the neural network parameters | "GlorotNormal" |
+| **activation:** *string* | Activation function used for the hidden layers | "sigmoid" |
+| **optimizer:** *string* | optimizer used for gradient descent | "Adam" |
+| **prediction_save:** *bool* | Toggle for whether the prediction at each epoch is saved. Used for animation | True/False |
+| **weights_save:** *bool* | Toggle for whether the weights and biases at each epoch are saved. Can be used for trajectory plots on the loss surface| True/False |
 
 
 ### Dictionary class in `Dictionary.py`:
