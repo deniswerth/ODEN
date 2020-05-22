@@ -9,8 +9,7 @@
 | **Homepage:**  | [https://github.com/deniswerth/NeuralNetwork_ODEsolver](https://github.com/deniswerth/NeuralNetwork_ODEsolver)|
 
 
-|:-------------:|:-------------:|:-------------:|
-![](Figures/README_pngs/firstorder.gif)|![](Figures/README_pngs/schrodinger.gif)|![](Figures/README_pngs/burst.gif)|
+![](Figures/README_pngs/firstorder.gif) ![](Figures/README_pngs/schrodinger.gif) ![](Figures/README_pngs/burst.gif)|
 
 ## Motivations
 Feedforward neural networks are able to approximate any continuous function at any level of accuracy. This is a loose statement of the Universal Approximation Theorem for neural networks. Although there is open source code for neural network solvers for ODEs and PDEs, the difference is that this network trains to fit the differential equation and boundary/ initial conditions at the same time. We also suggest that the loss is approximately the mean absolute error, without the need of having the true solution. 
