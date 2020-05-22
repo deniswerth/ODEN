@@ -1,15 +1,16 @@
 [![Python](https://img.shields.io/badge/python-3.8.2-blue.svg)](https://python.org)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.2-orange.svg)](https://tensorflow.org)
-# Neural Network ODEsolver
+# ODEN
+<p align="center">
+  <img src="Figures/README_pngs/burst.gif">
+</p>
+
 | &nbsp;        | &nbsp;           |
 | ------------- |:-------------:|
 |**NN ODEsolver:**  | Code that numerically solves ODEs using Neural Networks in an unsupervised manner|
 | **Authors:**  |[Liam L.H. Lau](https://github.com/LiamLau1), [Denis Werth](https://github.com/deniswerth)|
 | **Version:**  | 1.0|
 | **Homepage:**  | [https://github.com/deniswerth/NeuralNetwork_ODEsolver](https://github.com/deniswerth/NeuralNetwork_ODEsolver)|
-
-
-![](Figures/README_pngs/firstorder.gif) ![](Figures/README_pngs/schrodinger.gif) ![](Figures/README_pngs/burst.gif)|
 
 ## Motivations
 Feedforward neural networks are able to approximate any continuous function at any level of accuracy. This is a loose statement of the Universal Approximation Theorem for neural networks. Although there is open source code for neural network solvers for ODEs and PDEs, the difference is that this network trains to fit the differential equation and boundary/ initial conditions at the same time. We also suggest that the loss is approximately the mean absolute error, without the need of having the true solution. 
@@ -150,6 +151,12 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 
 ![Neural Network Solver solution to Schrodinger equation with harmonic potential](Figures/README_pngs/Figure_3.png)
 
+* A speed up animation of the training process:
+
+<p align="center">
+  <img src="Figures/README_pngs/schrodinger.gif">
+</p>
+
 
 ### Burst equation example:
 * Using the following differential equation and Dirichlet boundary conditions:
@@ -161,3 +168,8 @@ The third order derivative will now be available in `DiffEq.py` using `self.d3yd
 
 ![Neural Network Solver solution to Burst equation with n = 10](Figures/README_pngs/Figure_4_batch.png)
 
+* A speed up animation of the training process:
+
+<p align="center">
+  <img src="Figures/README_pngs/burst.gif">
+</p>
