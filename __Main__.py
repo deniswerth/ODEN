@@ -9,6 +9,7 @@ plt.rc('font', family='serif')
 from matplotlib.colors import LogNorm
 import scipy
 from scipy import special
+from scipy.integrate import solve_ivp
 
 #Import the Dictionary class
 from Dictionary import Dictionary
@@ -25,6 +26,19 @@ from DiffEq import DiffEq
 seed = 1234
 np.random.seed(seed)
 tf.random.set_seed(seed)
+
+#Custom plot fontsize
+import os
+os.environ['PATH'] = os.environ['PATH'] + ':/Library/TeX/texbin/'
+from matplotlib import cm
+from matplotlib import rc
+plt.rcParams['axes.labelsize'] = 15                                                                                                     
+plt.rcParams['legend.fontsize'] = 10                                                                                                     
+plt.rcParams['xtick.labelsize'] = 10                                                                                                     
+plt.rcParams['ytick.labelsize'] = 10
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = "serif"                                                                                                   
+plt.rcParams['font.serif'] = "cm"
 
 
 
@@ -168,12 +182,30 @@ if __name__ == "__main__":
 	def burst(n, x):
 		n = abs(n)
 		return np.sqrt(1 + x**2)/n * np.cos(n * np.arctan(x))
-
+	
 	#----------------------------------
 	#----------Figure-4----------------
 	#----------n = 10------------------
 	#----------------------------------
 	
+	#Solving Burst with Runge-Kutta (using solve_ivp)
+	def Dburst(n, x):
+		n = abs(n)
+		return 1/(n * np.sqrt(1 + x**2)) * (x * np.cos(n * np.arctan(x)) - n * np.sin(n * np.arctan(x)))
+
+	def burst_eq(x, Y):
+		global n
+		y, dy = Y
+		dY = [dy, (n**2 - 1)/(1 + x**2)**2 * y]
+		return dY
+
+	n = 10
+	sol = solve_ivp(fun = burst_eq, t_span = [-7, 7], y0 = [burst(n, -7), Dburst(n, -7)], method = "RK45", t_eval = np.linspace(-7, 7, 300), rtol=1e-8)
+	x_RK = sol.t
+	f = sol.y[0]
+	rel_error_RK = abs(f - burst(n, x_RK))/abs(burst(n, x_RK))
+
+	#Change minibatch size to batch_size = self.n//10 in ODEsolver.py
 	order = 2
 	diffeq = "burst"
 	n = 10
@@ -201,9 +233,33 @@ if __name__ == "__main__":
 	y_predict = solver.predict(x_predict)
 	y_exact = burst(n, x_predict)
 	print(solver.mean_relative_error(y_predict, y_exact))
-	solver.plot_solution(x_predict, y_predict, y_exact)
+	#solver.plot_solution(x_predict, y_predict, y_exact)
 	
+	fig = plt.figure()
 
+    #Exact and numerical solution
+	axe1 = fig.add_axes([0.17, 0.35, 0.75, 0.6])
+	axe1.set_ylabel("$f(x)$")
+	axe1.set_xticks([])
+	axe1.set_xlim(min(x_predict), max(x_predict))
+	axe1.set_ylim(-0.2, 0.5)
+	#Relative error
+	axe2 = fig.add_axes([0.17, 0.1, 0.75, 0.25])
+	axe2.set_xlim(min(x_predict), max(x_predict))
+	axe2.set_ylim(1e-6, 0.9)
+	axe2.set_ylabel("Relative \n error, $\\frac{|\\Delta f|}{|f|}$")
+	axe2.set_xlabel("$x$")
+	axe2.set_yscale('log')
+
+	axe1.plot(x_predict, y_exact, color = "C1", label = "Exact solution")
+	axe1.plot(x_predict, y_predict, ".", color = "C0", label = "Neural network solution", markersize = 3)
+	axe1.plot(x_RK, f, "--", color = "C2", label = "Runge-Kutta")
+	axe1.legend()
+
+	axe2.plot(x_predict, solver.relative_error(y_predict, y_exact), color = "C0")
+	axe2.plot(x_RK, rel_error_RK, color = "C2")
+	plt.show()
+	
 
 #--------------------------------------------------------------------
 #-----------------Figure-5-------------------------------------------
@@ -272,14 +328,15 @@ if __name__ == "__main__":
 
 	axe1.plot(x_exact, y_exact, color = "C1", label = "Exact solution")
 	axe1.plot(x_predict_ESS, y_predict_ESS, ".", color = "C0", label = "Evenly spaced", markersize = 3)
-	axe1.plot(x_predict_RUS, y_predict_RUS, ".", color = "C2", label = "Random uniform", markersize = 3)
-	axe1.plot(x_predict_RGS, y_predict_RGS, ".", color = "C3", label = "Random gaussian", markersize = 3)
+	axe1.plot(x_predict_RUS, y_predict_RUS, ".", color = "C2", label = "Uniform", markersize = 3)
+	axe1.plot(x_predict_RGS, y_predict_RGS, ".", color = "C3", label = "Gaussian", markersize = 3)
 	axe1.legend()
 
-	axe2.plot(x_predict_ESS, error_ESS, ".", color = "C0", markersize = 5)
-	axe2.plot(x_predict_RUS, error_RUS, ".", color = "C2", markersize = 5)
-	axe2.plot(x_predict_RGS, error_RGS, ".", color = "C3", markersize = 5)
+	axe2.plot(x_predict_ESS, error_ESS, ".", color = "C0", markersize = 4)
+	axe2.plot(x_predict_RUS, error_RUS, ".", color = "C2", markersize = 4)
+	axe2.plot(x_predict_RGS, error_RGS, ".", color = "C3", markersize = 4)
 	plt.show()
+
 	
 
 #--------------------------------------------------------------------
@@ -287,7 +344,7 @@ if __name__ == "__main__":
 #--------------------------------------------------------------------
 
 if __name__ == "__main__":
-
+	
 	order = 2
 	diffeq = "schrodinger"
 	n = 5
@@ -351,11 +408,12 @@ if __name__ == "__main__":
 	axe2.plot(x_2, error_2, ".", color = "C3", markersize = 4)
 	axe2.plot(x_3, error_3, ".", color = "C3", markersize = 4)
 	plt.show()
-
+	
 
 #--------------------------------------------------------------------
 #-----------------Figure-7-------------------------------------------
 #--------------------------------------------------------------------
+#Change the learning rates for all optimers to 1e-4 to smooth the curves in Dictionary.py
 
 if __name__ == "__main__":
 	
@@ -714,7 +772,5 @@ if __name__ == "__main__":
 
 	plt.show()
 	
-
-
 
 

@@ -33,11 +33,11 @@ class Dictionary():
         
         self.Dict_optimizers = {"Adadelta" : tf.keras.optimizers.Adadelta(learning_rate = 0.001, rho = 0.95, epsilon = 1e-07),
                                 "Adagrad"  : tf.keras.optimizers.Adagrad(learning_rate = 0.001, initial_accumulator_value = 0.1, epsilon = 1e-07),
-                                "Adam"     : tf.keras.optimizers.Adam(learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07, amsgrad = False),
-                                "Adamax"   : tf.keras.optimizers.Adamax(learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07),
-                                "Nadam"    : tf.keras.optimizers.Nadam(learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07),
+                                "Adam"     : tf.keras.optimizers.Adam(learning_rate = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07, amsgrad = False),
+                                "Adamax"   : tf.keras.optimizers.Adamax(learning_rate = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07),
+                                "Nadam"    : tf.keras.optimizers.Nadam(learning_rate = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-07),
                                 "RMSprop"  : tf.keras.optimizers.RMSprop(learning_rate = 0.001, rho = 0.9, momentum = 0.0, epsilon = 1e-07, centered = False),
-                                "SGD"      : tf.keras.optimizers.SGD(learning_rate = 0.0001, momentum = 0.0, nesterov = False)}
+                                "SGD"      : tf.keras.optimizers.SGD(learning_rate = 0.001, momentum = 0.0, nesterov = False)}
         
         self.Dict = {"initializer" : self.Dict_initializers, "activation" : self.Dict_activations, "optimizer" : self.Dict_optimizers}
 

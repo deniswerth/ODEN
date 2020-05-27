@@ -22,6 +22,20 @@ tf.random.set_seed(seed)
 tf.keras.backend.set_floatx('float64')
 
 
+#Custom plot fontsize
+import os
+os.environ['PATH'] = os.environ['PATH'] + ':/Library/TeX/texbin/'
+from matplotlib import cm
+from matplotlib import rc
+plt.rcParams['axes.labelsize'] = 15                                                                                                     
+plt.rcParams['legend.fontsize'] = 10                                                                                                     
+plt.rcParams['xtick.labelsize'] = 10                                                                                                     
+plt.rcParams['ytick.labelsize'] = 10
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = "serif"                                                                                                   
+plt.rcParams['font.serif'] = "cm"
+
+
 class ODEsolver():
     
     def __init__(self, order, diffeq, x, initial_condition, epochs, architecture, initializer, activation, optimizer, prediction_save, weights_save):
@@ -357,14 +371,14 @@ class ODEsolver():
 
         #Exact and numerical solution
         axe1 = fig.add_axes([0.17, 0.35, 0.75, 0.6])
-        axe1.set_ylabel("$f(x)$", fontsize = 15)
+        axe1.set_ylabel("$f(x)$")
         axe1.set_xticks([])
         axe1.set_xlim(min(x_predict), max(x_predict))
         #Relative error
         axe2 = fig.add_axes([0.17, 0.1, 0.75, 0.25])
         axe2.set_xlim(min(x_predict), max(x_predict))
-        axe2.set_ylabel("Relative \n error, $\\frac{|\\Delta f|}{|f|}$", fontsize = 15)
-        axe2.set_xlabel("$x$", fontsize = 15)
+        axe2.set_ylabel("Relative \n error, $\\frac{|\\Delta f|}{|f|}$")
+        axe2.set_xlabel("$x$")
         axe2.set_yscale('log')
 
         axe1.plot(x_predict, y_exact, color = "C1", label = "Exact solution")
