@@ -15,7 +15,7 @@
 ## Motivations
 Feedforward neural networks are able to approximate any continuous function at any level of accuracy. This is a loose statement of the Universal Approximation Theorem for neural networks. Although there is open source code for neural network solvers for ODEs and PDEs, the difference is that this network trains to fit the differential equation and boundary/ initial conditions at the same time. We also suggest that the loss is approximately the mean absolute error, without the need of having the true solution. 
 
-The paper can be found here:
+The paper can be found here: https://arxiv.org/abs/2005.14090
 
 All examples from the paper can be reproduced with the code provided, a walk through is provided in the examples section below.
 
